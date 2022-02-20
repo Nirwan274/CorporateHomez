@@ -1,0 +1,25 @@
+
+<app-navbar></app-navbar>
+<app-homepage></app-homepage>
+<div>
+  <mat-toolbar color="primary">
+    <div class="example-button">
+      <button mat-stroked-button *ngIf="(afAuth.authState | async) === null" (click)="signIn()">Sign In with
+
+        Google</button>
+      <button mat-stroked-button *ngIf="(afAuth.authState | async)" (click)="signOut()">Sign Out</button>
+    </div>
+
+  </mat-toolbar>
+</div>
+
+<div class="content" role="main">
+  <div *ngIf="afAuth.authState | async as user">
+    <h2>Welcome, {{user.displayName}}</h2>
+  </div>
+  &nbsp;
+  </div>
+
+
+<router-outlet></router-outlet>
+<app-footer></app-footer>
